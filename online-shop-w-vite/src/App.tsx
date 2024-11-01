@@ -15,7 +15,7 @@ function App() {
           productName={product.name}
           productDescription={product.description}
           productPrice={product.price}
-          addToCart={() => {
+          addToCart={() => {//problema aqui
             const cartHaveProduct = cartShop.map(productToFind => {
               return productToFind.id === product.id;
             });
