@@ -6,6 +6,7 @@
 
 .btn {
   cursor: pointer;
+  user-select: none;
 }
 
 .modal_backdrop {

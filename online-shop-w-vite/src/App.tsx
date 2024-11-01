@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ProductContainer from './ProductContainer';
 import ProductOnCartContainer from './ProductOnCartContainer';
@@ -9,6 +9,11 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState<Array<Product>>([]);
   const [productsList, setProductsList] = useState<Array<Product>>(initialProductsList);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log(shoppingCart);
+  }, [shoppingCart]);
+  
 
   return (
     <main>
@@ -22,14 +27,30 @@ function App() {
                 productName={productOnCart.name}
                 productAmount={productOnCart.amount}
                 decreaseAmount={() => {
+                  setShoppingCart(prev => {
+                    if (productOnCart.amount <= 1) {
+                      return shoppingCart.filter(p => { return p.id !== productOnCart.id });
+                    } else {
+                      const aux = [...prev];
+                      const index = aux.findIndex(p => p.id === productOnCart.id);
+                      aux[index].amount--;
+                      return aux;
+                    }
+                  });
                 }}
-                increaseAmount={() => { }}
+                increaseAmount={() => {
+                  setShoppingCart(prev => {
+                    const aux = [...prev]
+                    const index = aux.findIndex(p => p.id === productOnCart.id);
+                    aux[index].amount++;
+                    return aux;
+                  });
+                }}
                 productPrice={productOnCart.price}
                 removeFromCart={() => {
                   setShoppingCart(() => {
                     return shoppingCart.filter(p => { return p.id !== productOnCart.id });
                   });
-                  console.log(shoppingCart);
                 }}
                 key={productOnCart.id}
               />

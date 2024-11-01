@@ -7,7 +7,7 @@ type ProductOnCartContainerProps = {
     removeFromCart: () => void;
 }
 
-function ProductOnCartContainer({ productName, productPrice, productAmount, removeFromCart }: ProductOnCartContainerProps) {
+function ProductOnCartContainer({ productName, productPrice, productAmount, increaseAmount, decreaseAmount, removeFromCart }: ProductOnCartContainerProps) {
     return (
         <div className="cart_main_container">
             <div className="product_on_cart_container">
@@ -17,9 +17,9 @@ function ProductOnCartContainer({ productName, productPrice, productAmount, remo
                 </div>
                 <div className="product_on_cart_right_side">
                     <div className="change_product_amount_container">
-                        <div className="decrease_product_amount_btn btn"> - </div>
+                        <div className="decrease_product_amount_btn btn" onClick={() => decreaseAmount()}> - </div>
                         <p className="product_amount_on_cart">{productAmount}</p>
-                        <div className="increase_product_amount_btn btn"> + </div>
+                        <div className="increase_product_amount_btn btn" onClick={() => increaseAmount()}> + </div>
                     </div>
                     <div className="remove_product_from_cart_btn btn danger_msg" onClick={() => removeFromCart()}>Remove</div>
                 </div>
