@@ -1,0 +1,17 @@
+.btn {
+  cursor: pointer;
+}
+
+.modal_backdrop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.120);
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}

@@ -5,7 +5,7 @@ type ProductContainerProps = {
     productPrice: number;
     addToCart: () => void;
 }
-function ProductContainer({ productID, productName, productDescription, productPrice, addToCart }: ProductContainerProps) {
+function ProductContainer({ productName, productDescription, productPrice, addToCart }: ProductContainerProps) {
     return (
         <div className="product_container">
             <div className="product_img_container">
