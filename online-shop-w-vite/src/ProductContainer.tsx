@@ -19,10 +19,10 @@ function ProductContainer({ productName, productDescription, productPrice, produ
             <h1 className="product_price">{productPrice.toFixed(2)}</h1>
             <div className="btns_container">
                 <div className="buy_btn_container">
-                    <button className="buy_btn">Buy now</button>
+                    <div className="buy_btn secondary_btn product_container_btns btn">Buy now</div>
                 </div>
                 <div className="add_to_cart_btn_container">
-                    <button className="add_to_cart_btn" onClick={() => { addToCart() }}>Add to cart</button>
+                    <div className="add_to_cart_btn primary_btn product_container_btns btn" onClick={() => { addToCart() }}>Add to cart</div>
                 </div>
             </div>
         </div>
